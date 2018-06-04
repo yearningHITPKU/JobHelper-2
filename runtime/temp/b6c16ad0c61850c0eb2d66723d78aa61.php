@@ -1,4 +1,20 @@
-{include file='public/header'}
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:87:"/home/xww/workspace/JobHelper/public/../application/admin/view/intern/deleted_list.html";i:1528130823;s:71:"/home/xww/workspace/JobHelper/application/admin/view/public/header.html";i:1528096594;s:72:"/home/xww/workspace/JobHelper/application/admin/view/public/base_js.html";i:1527591138;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        软微学院实习内推信息管理系统
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/admin/css/x-admin.css" media="all">
+</head>
 <body>
 <div class="x-nav">
             <span class="layui-breadcrumb">
@@ -38,7 +54,7 @@
             批量恢复
         </button>
         <span class="x-right" style="line-height:40px">
-                    共有数据：{$intern_size} 条
+                    共有数据：<?php echo $intern_size; ?> 条
                 </span>
     </xblock>
     <table class="layui-table">
@@ -65,41 +81,41 @@
         </tr>
         </thead>
         <tbody id="internList-body">
-        {foreach name='intern_list' item='vo'}
+        <?php if(is_array($intern_list) || $intern_list instanceof \think\Collection || $intern_list instanceof \think\Paginator): if( count($intern_list)==0 ) : echo "" ;else: foreach($intern_list as $key=>$vo): ?>
         <tr>
             <td>
-                <input type="checkbox" value={$vo.id} name="one">
+                <input type="checkbox" value=<?php echo $vo['id']; ?> name="one">
             </td>
             <td>
-                {$vo.id}
+                <?php echo $vo['id']; ?>
             </td>
             <td>
                 <!--<u style="cursor:pointer" onclick="question_show()">-->
-                {$vo.title}
+                <?php echo $vo['title']; ?>
                 <!--<u style="cursor:pointer">
-                    <a target="_blank" href="{:url('front/intern/detail', ['id'=>$vo['id']])}" target="_blank">
-                        {$vo.title}
+                    <a target="_blank" href="<?php echo url('front/intern/detail', ['id'=>$vo['id']]); ?>" target="_blank">
+                        <?php echo $vo['title']; ?>
                     </a>
                 </u>-->
             </td>
             <td >
-                {$vo.time_publish}
+                <?php echo $vo['time_publish']; ?>
             </td>
             <td >
-                {$vo.click_times}
+                <?php echo $vo['click_times']; ?>
             </td>
             <td class="td-manage">
-                <a title="恢复" href="javascript:;" onclick="recover(this,{$vo.id})"
+                <a title="恢复" href="javascript:;" onclick="recover(this,<?php echo $vo['id']; ?>)"
                    style="text-decoration:none">
                     <i class="layui-icon">&#xe654;</i>
                 </a>
-                <a title="删除" href="javascript:;" onclick="question_del(this,{$vo.id})"
+                <a title="删除" href="javascript:;" onclick="question_del(this,<?php echo $vo['id']; ?>)"
                    style="text-decoration:none">
                     <i class="layui-icon">&#xe640;</i>
                 </a>
             </td>
         </tr>
-        {/foreach}
+        <?php endforeach; endif; else: echo "" ;endif; ?>
         </tbody>
     </table>
 
@@ -116,10 +132,13 @@
         }
     </style>
     <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-0" >
-        {$page}
+        <?php echo $page; ?>
     </div>
 </div>
-{include file='public/base_js'}
+<script src="/static/admin/lib/layui/layui.js" charset="utf-8"></script>
+<script src="/static/admin/js/x-admin.js"></script>
+<script src="/static/admin/js/jquery.min.js"></script>
+<script src="/static/admin/js/x-layui.js"></script>
 <script>
     layui.use(['laydate','element','laypage','layer'], function(){
         $ = layui.jquery;//jquery
@@ -188,7 +207,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "{:url('intern/delete')}",
+                url: "<?php echo url('intern/delete'); ?>",
                 data: {'id':id},
                 dataType: "json",
             })
@@ -204,7 +223,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "{:url('intern/recover')}",
+                url: "<?php echo url('intern/recover'); ?>",
                 data: {'id':id},
                 dataType: "json",
             })
@@ -261,7 +280,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "{:url('intern/deleteSelected')}",
+                url: "<?php echo url('intern/deleteSelected'); ?>",
                 data: {'json':JSON.stringify(data)},
                 dataType: "json",
             })
@@ -298,7 +317,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "{:url('intern/recoverSelected')}",
+                url: "<?php echo url('intern/recoverSelected'); ?>",
                 data: {'json':JSON.stringify(data)},
                 dataType: "json",
             })

@@ -1,10 +1,26 @@
-{include file='public/header'}
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:86:"/home/xww/workspace/JobHelper/public/../application/admin/view/thought/check_list.html";i:1528136220;s:71:"/home/xww/workspace/JobHelper/application/admin/view/public/header.html";i:1528096594;s:72:"/home/xww/workspace/JobHelper/application/admin/view/public/base_js.html";i:1527591138;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        软微学院实习内推信息管理系统
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/admin/css/x-admin.css" media="all">
+</head>
     <body>
         <div class="x-nav">
             <span class="layui-breadcrumb">
               <a><cite>首页</cite></a>
-              <a><cite>实习信息管理</cite></a>
-              <a><cite>实习内推信息</cite></a>
+              <a><cite>面试经验管理</cite></a>
+              <a><cite>面试经验</cite></a>
             </span>
             <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新">
                 <i class="layui-icon" style="line-height:30px">
@@ -13,39 +29,15 @@
             </a>
         </div>
         <div class="x-body">
-            <!--<form class="layui-form x-center" action="" style="width:800px">
-                <div class="layui-form-pane" style="margin-top: 15px;">
-                  <div class="layui-form-item">
-                    <label class="layui-form-label">日期范围</label>
-                    <div class="layui-input-inline">
-                      <input class="layui-input" placeholder="开始日" id="LAY_demorange_s">
-                    </div>
-                    <div class="layui-input-inline">
-                      <input class="layui-input" placeholder="截止日" id="LAY_demorange_e">
-                    </div>
-                    <div class="layui-input-inline">
-                      <input type="text" name="username"  placeholder="标题" autocomplete="off" class="layui-input">
-                    </div>
-                    <div class="layui-input-inline" style="width:80px">
-                        <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-                    </div>
-                  </div>
-                </div>
-            </form>-->
             <xblock>
                 <button class="layui-btn layui-btn-danger" onclick="delSelected()">
                     <i class="layui-icon">&#xe640;</i>
                     批量删除
                 </button>
-                <a href="{:url('intern/save',['id'=>'-'])}" class="layui-btn layui-btn-normal" id="selpart"><i class="layui-icon">&#xe605;</i>导出选中</a>
-                <a href="{:url('intern/save',['id'=>-1])}" class="layui-btn layui-btn-warm"><i class="layui-icon">&#xe601;</i>导出全部</a>
-
-                <!--<button class="layui-btn" onclick="question_add('添加问题','question-add.html','600','500')">
-                    <i class="layui-icon">&#xe608;</i>
-                    添加
-                </button>-->
+                <!--<a href="<?php echo url('thought/save',['id'=>'-']); ?>" class="layui-btn layui-btn-normal" id="selpart"><i class="layui-icon">&#xe605;</i>导出选中</a>-->
+                <a href="<?php echo url('thought/save',['id'=>-1]); ?>" class="layui-btn layui-btn-warm"><i class="layui-icon">&#xe601;</i>导出全部</a>
                 <span class="x-right" style="line-height:40px">
-                    共有数据：{$intern_size} 条
+                    共有数据：<?php echo $thought_size; ?> 条
                 </span>
             </xblock>
             <table class="layui-table">
@@ -78,49 +70,41 @@
                     </tr>
                 </thead>
                 <tbody id="internList-body">
-                {foreach name='intern_list' item='vo'}
+                <?php if(is_array($thought_list) || $thought_list instanceof \think\Collection || $thought_list instanceof \think\Paginator): if( count($thought_list)==0 ) : echo "" ;else: foreach($thought_list as $key=>$vo): ?>
                     <tr>
                         <td>
-                            <input type="checkbox" value={$vo.id} name="one">
+                            <input type="checkbox" value=<?php echo $vo['id']; ?> name="one">
                         </td>
                         <td>
-                            {$vo.id}
+                            <?php echo $vo['id']; ?>
                         </td>
                         <td>
-                            {$vo.title}
+                            <?php echo $vo['title']; ?>
                         </td>
                         <td >
-                            {$vo.uid}
+                            <?php echo $vo['uid']; ?>
                         </td>
                         <td >
-                            {$vo.name}
+                            <?php echo $vo['name']; ?>
                         </td>
                         <td >
-                            {$vo.time_publish}
+                            <?php echo $vo['time_publish']; ?>
                         </td>
                         <td >
-                            {$vo.click_times}
+                            <?php echo $vo['click_times']; ?>
                         </td>
                         <td class="td-manage">
                             <!--<a title="编辑" href="javascript:;" onclick="question_edit('编辑','question-edit.html','4','','510')"
                             class="ml-5" style="text-decoration:none">
                                 <i class="layui-icon">&#xe642;</i>
                             </a>-->
-                            <a title="删除" href="javascript:;" onclick="question_del(this,{$vo.id})"
+                            <a title="删除" href="javascript:;" onclick="question_del(this,<?php echo $vo['id']; ?>)"
                             style="text-decoration:none">
                                 <i class="layui-icon">&#xe640;</i>
                             </a>
-                            <a title="置顶" href="javascript:;" onclick="stick(this,{$vo.id})"
-                               style="text-decoration:none">
-                                <i class="layui-icon">&#xe619;</i>
-                            </a>
-                            <a title="取消置顶" href="" onclick="stick_cancel(this,{$vo.id})"
-                               style="text-decoration:none">
-                                <i class="layui-icon">&#xe61a;</i>
-                            </a>
                         </td>
                     </tr>
-                {/foreach}
+                <?php endforeach; endif; else: echo "" ;endif; ?>
                 </tbody>
             </table>
 
@@ -137,10 +121,13 @@
                 }
             </style>
             <div class="layui-box layui-laypage layui-laypage-default" id="layui-laypage-0" >
-            {$page}
+            <?php echo $page; ?>
             </div>
         </div>
-        {include file='public/base_js'}
+        <script src="/static/admin/lib/layui/layui.js" charset="utf-8"></script>
+<script src="/static/admin/js/x-admin.js"></script>
+<script src="/static/admin/js/jquery.min.js"></script>
+<script src="/static/admin/js/x-layui.js"></script>
         <script>
             // 导出选中，动态更改按钮的链接
             $('input[type="checkbox"]').change(function(){
@@ -208,123 +195,6 @@
             });
 
             //批量删除提交
-             function delSelected () {
-                layer.confirm('确认要删除吗？',function(index){
-                    //捉到所有被选中的，发异步进行删除
-                    layer.msg('删除成功', {icon: 1});
-
-                    var data = new Array();
-                    var j = 0;
-                    var input = document.getElementsByName("one");
-                    //遍历internList-body，获取所有子tr
-                    console.log(input.length);
-                    for (var i=0; i<input.length ;i++ )
-                    {
-                        if(input[i].checked){
-                            console.log(input[i].checked);
-                            data[j] = input[i].value;
-                            console.log(data[j]);
-                            j++;
-                            input[i].parentNode.parentNode.parentNode.removeChild(input[i].parentNode.parentNode);
-                            $(input[i]).parents("tr").remove();
-                        }
-                    }
-
-                    $.ajax({
-                        type: 'POST',
-                        url: "{:url('intern/updateSelected')}",
-                        data: data,
-                        dataType: "json",
-                    })
-                });
-             }
-             function question_show (argument) {
-                layer.msg('可以跳到前台具体问题页面',{icon:1,time:1000});
-             }
-             /*添加*/
-            function question_add(title,url,w,h){
-                x_admin_show(title,url,w,h);
-            }
-            //编辑
-           function question_edit (title,url,id,w,h) {
-                x_admin_show(title,url,w,h);
-            }
-
-            /*删除*/
-            function question_del(obj,id){
-                layer.confirm('确认要删除吗？',function(index){
-                    //发异步删除数据
-                    $(obj).parents("tr").remove();
-                    layer.msg('已删除!',{icon:1,time:1000});
-
-                    $.ajax({
-                        type: 'POST',
-                        url: "{:url('intern/update')}",
-                        data: {'id':id},
-                        dataType: "json",
-                        // success: function (data) {
-                        //     if (data.status == 0){
-                        //         alert(data.message);
-                        //         window.location.href = "{:url('index/index')}"
-                        //     }else{
-                        //         alert(data.message);
-                        //         window.location.href = "{:url('login/index')}"
-                        //     }
-                        // }
-                    })
-                });
-            }
-
-            /*置顶*/
-            function stick(obj,id){
-                layer.confirm('确认要置顶吗？',function(index){
-                    //发异步删除数据
-                    //$(obj).parents("tr").remove();
-                    layer.msg('已置顶!',{icon:1,time:1000});
-
-                    $.ajax({
-                        type: 'POST',
-                        url: "{:url('intern/stick')}",
-                        data: {'id':id},
-                        dataType: "json",
-                        // success: function (data) {
-                        //     if (data.status == 0){
-                        //         alert(data.message);
-                        //         window.location.href = "{:url('index/index')}"
-                        //     }else{
-                        //         alert(data.message);
-                        //         window.location.href = "{:url('login/index')}"
-                        //     }
-                        // }
-                    })
-                });
-            }
-
-            function stick_cancel(obj,id){
-                layer.confirm('确认要取消置顶吗？',function(index){
-                    //发异步删除数据
-                    //$(obj).parents("tr").remove();
-                    layer.msg('已取消!',{icon:1,time:1000});
-
-                    $.ajax({
-                        type: 'POST',
-                        url: "{:url('intern/stick_cancel')}",
-                        data: {'id':id},
-                        dataType: "json",
-                        // success: function (data) {
-                        //     if (data.status == 0){
-                        //         alert(data.message);
-                        //         window.location.href = "{:url('index/index')}"
-                        //     }else{
-                        //         alert(data.message);
-                        //         window.location.href = "{:url('login/index')}"
-                        //     }
-                        // }
-                    })
-                });
-            }
-
-            //批量删除提交
             function delSelected () {
                 layer.confirm('确认要删除吗？',function(index){
                     //捉到所有被选中的，发异步进行删除
@@ -354,12 +224,41 @@
 
                     $.ajax({
                         type: 'POST',
-                        url: "{:url('intern/updateSelected')}",
+                        url: "<?php echo url('thought/deleteSelected'); ?>",
                         data: {'json':JSON.stringify(data)},
                         dataType: "json",
                     })
                 });
             }
+
+             function question_show (argument) {
+                layer.msg('可以跳到前台具体问题页面',{icon:1,time:1000});
+             }
+             /*添加*/
+            function question_add(title,url,w,h){
+                x_admin_show(title,url,w,h);
+            }
+            //编辑
+           function question_edit (title,url,id,w,h) {
+                x_admin_show(title,url,w,h);
+            }
+
+            /*删除*/
+            function question_del(obj,id){
+                layer.confirm('确认要删除吗？',function(index){
+                    //发异步删除数据
+                    $(obj).parents("tr").remove();
+                    layer.msg('已删除!',{icon:1,time:1000});
+
+                    $.ajax({
+                        type: 'POST',
+                        url: "<?php echo url('thought/delete'); ?>",
+                        data: {'id':id},
+                        dataType: "json",
+                    })
+                });
+            }
+
 
             function selectAll(){
                 var checkbox = document.getElementById("selectAll");
@@ -382,7 +281,7 @@
 
                     }
                 }else{
-                    var newlink = "{:url('intern/save',['id'=>'-'])}";
+                    var newlink = "<?php echo url('thought/save',['id'=>'-']); ?>";
                     $("#selpart").attr("href",newlink);
                     for (var i=0;i<input.length ;i++ )
                     {

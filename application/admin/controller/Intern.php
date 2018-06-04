@@ -3,7 +3,6 @@
 namespace app\admin\controller;
 
 use app\admin\common\Base;
-use app\user\model\Interns;
 use think\Log;
 use think\Request;
 use PHPExcel_IOFactory;     //导出excel所需的引用，位于vendor目录
@@ -18,7 +17,12 @@ class Intern extends Base
         //1.从数据库中读取所有is_allowed字段为1的数据，并且分页，参数为每页的条数
         $internModel = new \app\admin\model\Intern();
 
-        $interns = $internModel->where('is_allowed',1)->order('')->paginate(10);
+        $interns = $internModel->alias('i')
+            ->join('user u','i.owner_id=u.id')
+            ->where('i.is_allowed',1)
+            ->order('i.time_publish desc')
+            ->field('i.*, u.name, u.uid')
+            ->paginate(10);
 
         //2.将数据赋值给模板
         $this->view->assign('intern_list', $interns);

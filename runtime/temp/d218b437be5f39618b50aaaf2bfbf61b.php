@@ -1,4 +1,49 @@
-<div class="layui-side layui-bg-black x-side">
+<?php if (!defined('THINK_PATH')) exit(); /*a:4:{s:79:"/home/xww/workspace/JobHelper/public/../application/admin/view/index/index.html";i:1527016082;s:71:"/home/xww/workspace/JobHelper/application/admin/view/public/header.html";i:1528096594;s:74:"/home/xww/workspace/JobHelper/application/admin/view/public/left_menu.html";i:1528132386;s:72:"/home/xww/workspace/JobHelper/application/admin/view/public/base_js.html";i:1527591138;}*/ ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>
+        软微学院实习内推信息管理系统
+    </title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="/static/admin/css/x-admin.css" media="all">
+</head>
+    <body>
+        <div class="layui-layout layui-layout-admin">
+            <div class="layui-header header header-demo">
+                <div class="layui-main">
+                    <a class="logo" href="./index.html">
+                        软微学院实习内推信息管理系统
+                    </a>
+                    <ul class="layui-nav" lay-filter="">
+                      <li class="layui-nav-item"><img src="/static/admin/images/logo.png" class="layui-circle" style="border: 2px solid #A9B7B7;" width="35px" alt=""></li>
+                      <li class="layui-nav-item">
+                        <a href="javascript:;">admin</a>
+                        <dl class="layui-nav-child"> <!-- 二级菜单 -->
+                          <dd><a href="">个人信息</a></dd>
+                          <dd><a href="">切换帐号</a></dd>
+                          <dd><a href="<?php echo url('login/logout'); ?>">退出</a></dd>
+                        </dl>
+                      </li>
+                      <!-- <li class="layui-nav-item">
+                        <a href="" title="消息">
+                            <i class="layui-icon" style="top: 1px;">&#xe63a;</i>
+                        </a>
+                        </li> -->
+                      <li class="layui-nav-item x-index"><a href="/">前台首页</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <div class="layui-side layui-bg-black x-side">
     <div class="layui-side-scroll">
         <ul class="layui-nav layui-nav-tree site-demo-nav" lay-filter="side">
             <li class="layui-nav-item">
@@ -8,14 +53,14 @@
                 <dl class="layui-nav-child">
                     <dd class="">
                     <dd class="">
-                        <a href="javascript:;" _href="{:url('intern/index')}">
+                        <a href="javascript:;" _href="<?php echo url('intern/index'); ?>">
                             <cite>实习内推信息</cite>
                         </a>
                     </dd>
                     </dd>
                     <dd class="">
                     <dd class="">
-                        <a href="javascript:;" _href="{:url('intern/deleted_list')}">
+                        <a href="javascript:;" _href="<?php echo url('intern/deleted_list'); ?>">
                             <cite>已删除条目</cite>
                         </a>
                     </dd>
@@ -29,7 +74,7 @@
                 <dl class="layui-nav-child">
                     <dd class="">
                     <dd class="">
-                        <a href="javascript:;" _href="{:url('thought/index')}">
+                        <a href="javascript:;" _href="<?php echo url('thought/index'); ?>">
                             <cite>面试经验</cite>
                         </a>
                     </dd>
@@ -42,7 +87,7 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd class="">
-                        <a href="javascript:;" _href="{:url('admin/index')}">
+                        <a href="javascript:;" _href="<?php echo url('admin/index'); ?>">
                             <cite>管理员列表</cite>
                         </a>
                     </dd>
@@ -69,21 +114,21 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd class="">
-                        <a href="javascript:;" _href="{:url('user/user_list')}">
+                        <a href="javascript:;" _href="<?php echo url('user/user_list'); ?>">
                             <cite>用户管理</cite>
                         </a>
                     </dd>
                 </dl>
                 <!--<dl class="layui-nav-child">
                     <dd class="">
-                        <a href="javascript:;" _href="{:url('user/user_list')}">
+                        <a href="javascript:;" _href="<?php echo url('user/user_list'); ?>">
                             <cite>角色管理</cite>
                         </a>
                     </dd>
                 </dl>
                 <dl class="layui-nav-child">
                     <dd class="">
-                        <a href="javascript:;" _href="{:url('user/user_list')}">
+                        <a href="javascript:;" _href="<?php echo url('user/user_list'); ?>">
                             <cite>权限管理</cite>
                         </a>
                     </dd>
@@ -184,3 +229,27 @@
     </div>
 
 </div>
+
+            <div class="layui-tab layui-tab-card site-demo-title x-main" lay-filter="x-tab" lay-allowclose="true">
+                <div class="x-slide_left"></div>
+                <ul class="layui-tab-title">
+                    <li class="layui-this">
+                        我的桌面
+                        <i class="layui-icon layui-unselect layui-tab-close">ဆ</i>
+                    </li>
+                </ul>
+                <div class="layui-tab-content site-demo site-demo-body">
+                    <div class="layui-tab-item layui-show">
+                        <iframe frameborder="0" src="<?php echo url('welcome'); ?>" class="x-iframe"></iframe>
+                    </div>
+                </div>
+            </div>
+            <div class="site-mobile-shade">
+            </div>
+        </div>
+        <script src="/static/admin/lib/layui/layui.js" charset="utf-8"></script>
+<script src="/static/admin/js/x-admin.js"></script>
+<script src="/static/admin/js/jquery.min.js"></script>
+<script src="/static/admin/js/x-layui.js"></script>
+    </body>
+</html>
