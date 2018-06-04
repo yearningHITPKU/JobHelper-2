@@ -1,0 +1,134 @@
+/* .tab {
+	height: 30px;
+	border-bottom: #417eb7 1px solid;
+}
+
+.tab ul {
+	line-height: 29px;
+	margin-left: 3px;
+}
+
+.tab ul li {
+	list-style: none;
+	float: left;
+	border: #417eb7 1px solid;
+	padding: 0 30px;
+	background-color: #417eb7;
+	margin-left: 2px;
+	cursor: pointer;
+	color: #fff;
+}
+
+.tab .selected {
+	line-height: 30px;
+	border-bottom: none;
+	font-weight: bold;
+	background-color: #fff;
+	color: black;
+	-moz-box-shadow: inset 3px 3px 3px #cfcfcf;
+	-webkit-box-shadow: inset 3px 3px 3px #cfcfcf;
+	box-shadow: inset 3px 3px 3px #cfcfcf;
+} */
+ul{
+	list-style:none;
+}
+.district {
+	//width: 200px;
+}
+.district[readonly]{
+	background:#fff!important;
+	cursor:pointer;
+}
+.district-detail {
+	width: 250px;
+	margin-left: 2px;
+}
+
+.district-tip {
+	border-bottom: red 1px solid;
+}
+
+.panel {
+	display: none;
+	position: absolute;
+	z-index: 999;
+	background: white;
+	width: 390px;
+	border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.panel .panel-top {
+	height:25px;
+	border-bottom: #ccc 1px solid;
+}
+
+.panel .panel-top span {
+	height:24px;
+	line-height:24px;
+	text-indent: 10px;
+	float: left;
+	width: 280px;
+	overflow: hidden;
+}
+
+.panel .panel-top .dp-btn {
+	float: right;
+}
+
+.panel .panel-top .dp-btn span {
+	width: 35px;
+	height: 24px;
+	display: block;
+}
+
+.panel .panel-contents {
+	min-height: 170px;
+}
+.panel .panel-contents ul {
+	margin: 5px 10px;
+	overflow: hidden;
+}
+.panel .panel-contents ul li {
+	border: medium none;
+    float: left;
+    height:30px;
+    line-height:30px;
+    margin: 0 10px;
+}
+
+.panel .panel-contents ul li label {
+	white-space: nowrap;
+	display: inline-table;
+	cursor: pointer;
+	padding:0 4px;
+	-webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+.panel .panel-contents ul li label:hover{
+	background: #eee;
+}
+.home,.back,.confirm {
+	background: url("btns.png") no-repeat;
+}
+
+.home {
+	background-position:6px 4px
+}
+
+.back {
+	background-position:-24px 2px
+}
+
+.confirm {
+	background-position:-50px 3px
+}
+/*地区选择框最高305px,超出出滚动条*/
+.panel-contents {
+	max-height: 305px;
+	overflow: auto;
+}

@@ -1,0 +1,392 @@
+<!--
+	作者：xichutian@163.com
+	时间：2018-05-06
+	描述：内推发布
+-->
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://scc.pku.edu.cn/student/base-student.action -->
+<html>
+  <head>
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <link href="/resources/css/reset.css" rel="stylesheet"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <link href="/resources/css/reset.css" rel="stylesheet"> -->
+    <link href="css/studentcss/bootstrap.min.css" rel="stylesheet">
+    <!-- 时间控件 -->
+    <link href="css/studentcss/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/studentcss/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="css/studentcss/pageModel.css" />
+    <title>北京大学软件与微电子学院-实习内推发布</title>
+    <style media="screen">.wrap { position: relative; } .side { width: 120px; position: absolute; left: 0; height: 100%; background-color: #f1f1f1; } .right { margin-left: 140px; margin-top: -20px; padding-top: 10px; background-color: white; min-height: 800px; } .p-15 { padding: 15px; } .upload-logo-input { cursor: pointer; width: 100px; height: 100px; font-size: 20px; position: absolute; z-index: 99; opacity: 0; -ms-filter: 'alpha(opacity=0)'; } .profile-logo { position: relative; padding: 10px; text-align: center; } .profile-logo img { border-radius: 50%; width: 100px; height: 100px; } .tip-mask { visibility: hidden; position: absolute; border-radius: 50%; width: 100px; height: 100px; overflow: hidden; } .tip-mask .fa { position: absolute; color: #FFF; font-size: 55px; z-index: 10; left: 30px; top: 7px; } .tip-mask .hint { position: absolute; color: #fff; z-index: 10; font-size: 16px; bottom: 15px; left: 20px; } .tip-mask .mask { width: inherit; height: inherit; background: #000; opacity: 0.6; -ms-filter: 'alpha(opacity=0.6)'; } .head-div { border-radius: 50%; overflow: hidden; } .head-div:hover .tip-mask{ visibility: visible; } .profile-logo h4 { margin: 8px 0; } ul.profile-spec { margin-top: 20px; } ul.profile-spec li>a { display: inline-block; padding: 15px 0 15px 25px; width: 100%; height: 100%; text-decoration: none; font-size: 14px; } ul.profile-spec li.active>a { background-color: #fff; font-size: 15px; } ul.profile-spec li>a:hover { background-color: #fff; } .tab-pane { padding-bottom: 40px; } .add-more { text-align: center; margin: 10px; } .add-more a { padding: 6px 20px; display: inline-block; border: 1px solid #03A9F4; border-radius: 5px; font-size: 14px; text-decoration: none; } .add-more .color-green{ border: 1px solid #527d28; color:#527d28; } .add-more a:hover { background-color: #f1f1f1; text-decoration: none; } .add-more a>i { padding-right: 6px; } .bootstrap-select { width: 260px !important; } .student-tip { line-height: 45px; font-size: 16px; color: red; padding: 0 15px; } .col-sm-2{ width: 15%; padding-right: 0; }</style></head>
+ 	<style>
+ 		body { 
+		padding-top: 50px;
+		padding-bottom: 50px; 
+		}
+		a{
+		text-decoration: none;
+		color:#000000;
+		text-underline: none;
+		}
+		a:hover{
+			color: red;
+			 text-decoration:none;
+		}
+		.footer{
+			margin: 0 auto;
+			padding: 10px 0px;
+		}
+		span.star{
+			color: red;
+		}
+		.footer a:hover{
+		color: #038a1e;
+		}
+ 	</style>
+  <body tabindex="0">
+    <!-- Navigation -->
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">实习内推信息网</a>
+        </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+	            <li class="active"><a href="#">个人信息</a></li>
+	            <li><a href="#">我的发布</a></li>
+	            <li><a href="#">关注</a></li>
+	            <li><a href="#">订阅</a></li>
+	            <li><a href="#">收藏</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+			<li><a href="#" style="color: red;"><i class="fa fa-user" aria-hidden="true"></i>欢迎回来，向往</a></li>
+          	</ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+   </nav>
+
+                  <form class="form-horizontal" role="form" id="studentForm" novalidate="novalidate" enctype="multipart/form-data" method="post" action="{:url('create')}" onsubmit="return checkForm();">
+                    <!--<input type="hidden" name="student.id" value="ff808081623dae0001623f259d081123">-->
+                      <div class="form-group">
+                        <div class="littleTitle lineFeed littleicon2 col-sm-12">内推详情</div>
+                      </div>
+                      <!--<div class="form-group">-->
+                        <!--<label for="studentpin" class="control-label col-sm-3">学号：</label>-->
+                        <!--<div class="col-sm-8">-->
+                          <!--<p class="form-control-static">1701210335</p></div>-->
+                      <!--</div>-->
+                      <div class="form-group">
+                        <label class="control-label col-sm-3">
+                          <span class="star">*</span>标题：</label>
+                        <div class="col-sm-8">
+                          <span class="twitter-typeahead" style="position: relative; display: block;">
+                            <input class="form-control tt-hint" value="" autocomplete="off" spellcheck="false" tabindex="-1" dir="ltr" style="position: absolute; top: 0px; left: 0px; border-color: transparent; box-shadow: none; opacity: 1; background: none 0% 0% / auto repeat scroll padding-box border-box rgb(255, 255, 255);">
+                            <input id="title" class="form-control col-sm-9" placeholder="请输入完整的内推标题" name="title" value="" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; vertical-align: top; background-color: transparent;">
+                            <pre aria-hidden="true" style="position: absolute; visibility: hidden; white-space: pre; font-family: &quot;Hiragino Sans GB&quot;, &quot;Microsoft Yahei&quot;, SimSun, Arial, &quot;Helvetica Neue&quot;, Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></pre>
+                            <div class="tt-menu" style="position: absolute; top: 100%; left: 0px; z-index: 100; display: none;">
+                              <div class="tt-dataset tt-dataset-school-dataset"></div>
+                            </div>
+                          </span>
+                          <!--<p class="inputNote">请填写完整的标题</p>-->
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">
+                          <span class="star">*</span>行业：</label>
+                        <div class="col-sm-8">
+                          <!--<input type="hidden" name="industry" value="">-->
+                          <!--<input class="form-control" type="text" placeholder="请填写行业名称" value="" name="industry">-->
+                          <select class="form-control">
+                            <option value="software">软件开发业</option>
+                            <option value="electronic">微电子行业</option>
+                            <option value="government">政府机关</option>
+                            <option>制造业</option>
+                            <option>采矿业</option>
+                            <option>医药食品业</option>
+                            <option>电力、热力、燃气及水生产和供应业</option>
+                            <option>建筑业</option>
+                            <option>批发和零售业</option>
+                            <option>交通运输、仓储和邮政业</option>
+                            <option>住宿和餐饮业</option>
+                            <option>采矿业</option>
+                          </select>
+                        </div>
+                      </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">
+                          <span class="star">*</span>地点：</label>
+                        <div class="col-sm-8">
+	                            <select class="form-control">
+	                            <option value="software">北京</option>
+	                            </select>
+                        		<p class="inputNote">不在列表里？<a href="#" id="addcity">点击这里添加</a><a href="#" id="delcity">删除</a></p>
+                        		<input class="form-control" type="text" placeholder="请填写地点" value="" name="city_name" style="display: none;">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">
+                          <span class="star">*</span>企业名称：</label>
+                        <div class="col-sm-8">
+							<select class="form-control">
+                            <option value="software">默认</option>
+                            </select>
+                          <p class="inputNote">不在列表里？<a href="#" id="addcorp">点击这里添加</a><a href="#" id="delcorp">删除</a></p>
+                          <input class="form-control" type="text" placeholder="请填写地点" value="" name="corp_name" style="display: none;">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">
+                          <span class="star">*</span>工作职位：</label>
+                        <div class="col-sm-8">
+                          <!--<input type="hidden" name="student.homearea" value="">-->
+                          <input class="form-control" type="text" placeholder="请填写工作职位" value="" name="position">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-3"><span class="star">*</span>应聘条件：</label>
+                          <div class="col-sm-8">
+                            <select class="form-control" name="grade">
+                                  <option value="0">应届</option>
+                                  <option value="1">往届</option>
+                                  <option value="2">应届&往届</option>
+                            </select>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-3"><span class="star">*</span>工作性质：</label>
+                          <div class="col-sm-8">
+                            <select class="form-control" name="type">
+                                  <option value="0">实习</option>
+                                  <option value="1">就业</option>
+                                  <option value="2">就业&实习</option>
+                            </select>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">招聘负责人姓名：</label>
+                        <div class="col-sm-8">
+                          <input class="form-control" type="text" placeholder="请填写招聘负责人姓名" value="" name="hr_name">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="col-sm-3 control-label">内推码：</label>
+                        <div class="col-sm-8">
+                          <input class="form-control" type="text" placeholder="请填写内推码" value="" name="code">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-3">
+                          <span class="star">*</span>简历接收邮箱：</label>
+                        <div class="col-sm-8">
+                          <input id="email" class="form-control" placeholder="请输入邮箱" name="email" value=""></div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-3">应聘联系电话：</label>
+                        <div class="col-sm-8">
+                          <input id="mobile" class="form-control" placeholder="请输入手机号码" name="tel" value=""></div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-3">简历投递网址：</label>
+                        <div class="col-sm-8">
+                          <input id="email" class="form-control" placeholder="请输入网址" name="url" value="" >
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-sm-3">微信公众号：</label>
+                        <div class="col-sm-8">
+                          <input id="email" class="form-control" placeholder="请输入微信公众号" name="weixin" value="">
+                        </div>
+                      </div>
+                      <!--<div class="form-group">-->
+                        <!--<label class="control-label col-sm-3">-->
+                          <!--<span class="star">*</span>招聘负责人邮箱：</label>-->
+                        <!--<div class="col-sm-8">-->
+                          <!--<input id="email" class="form-control" placeholder="请输入邮箱" name="hr_email" value=""></div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group">-->
+                        <!--<label class="control-label col-sm-3">-->
+                          <!--<span class="star">*</span>招聘负责人电话：</label>-->
+                        <!--<div class="col-sm-8">-->
+                          <!--<input id="mobile" class="form-control" placeholder="请输入手机号码" name="hr_tel" value=""></div>-->
+                      <!--</div>-->
+                      <!--<div class="form-group">-->
+                        <!--<label class="control-label col-sm-3">-->
+                          <!--<span class="star">*</span>企业资质文件：</label>-->
+                        <!--<div class="col-sm-8">-->
+                          <!--<input id="input-b2" name="corp_qualification" type="file" class="file" data-show-preview="false">-->
+                        <!--</div>-->
+                      <!--</div>-->
+                      <div class="form-group">
+                        <label class="control-label col-sm-3">
+                          <span class="star">*</span>招聘简章：</label>
+                        <div class="col-sm-8">
+                          <input id="input-file" value="da" name="corp_hire_info" type="file" class="file">
+                          <p class="help-block">支持pdf、txt、doc、docx格式，大小不超过3.0M</p>
+                        </div>
+                      </div>
+                    <div class="add-more" id="saveAndSubmit">
+                      <label class="control-label col-sm-1">
+                      </label>
+                      <button type="submit" id="btn_submitInfo" style="margin: 0 10px;" class="btn btn-success">
+                        <i class="fa fa-check-square-o"></i>提交
+                      </button>
+                    </div>
+                  </form>
+					<div class="footer row navbar-fixed-bottom">
+								<a href="#">
+								<div class="item col-xs-6 col-sm-6" style="text-align: center;">
+									<i class="fa fa-file-text" aria-hidden="true"></i>
+									<br>
+									发布内推
+								</div>
+								</a>
+								<a href="#">
+								<div class="item col-xs-6 col-sm-6" style="text-align: center;">
+									<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+									<br>
+									面试指导
+								</div>
+								</a>
+						</div>
+				<!-- jQuery Version 1.11.0 -->
+    <script src="js/studentjs/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/studentjs/bootstrap.min.js"></script>
+    <!-- bootstrapValidator -->
+    <script src="js/studentjs/bootstrapValidator.js"></script>
+    <!-- ajaxfileupload -->
+    <script src="js/studentjs/ajaxfileupload.js"></script>
+    <script type="text/javascript">
+    	$("#addcity").click(function (event){
+    		event.preventDefault();
+    		$('input[name="city_name"]').show()
+    	});
+    	$("#delcity").click(function (event){
+    		event.preventDefault();
+    		$('input[name="city_name"]').hide()
+    	});
+    	$("#addcorp").click(function (event){
+    		event.preventDefault();
+    		$('input[name="corp_name"]').show()
+    	});
+    	$("#delcorp").click(function (event){
+    		event.preventDefault();
+    		$('input[name="corp_name"]').hide()
+    	});
+        fillMyInfo();
+        function fillMyInfo(){
+        //初始化验证
+        $('#studentForm').bootstrapValidator({
+          excluded: [':disabled'],
+          live: 'enabled',
+          fields: {
+            "title": {
+              validators: {
+                notEmpty: {
+                  message: '内推标题不能为空'
+                }
+              }
+            },
+            "industry": {
+              validators: {
+                notEmpty: {
+                  message: '行业名称不能为空'
+                }
+              }
+            },
+            "corp_name": {
+              validators: {
+                notEmpty: {
+                  message: '企业名称不能为空'
+                }
+              }
+            },
+            "position": {
+              validators: {
+                notEmpty: {
+                  message: '工作职位不能为空'
+                }
+              }
+            },
+            "tel": {
+                validators: {
+                    regexp: {
+                        regexp: /^(1\d{10})$/,
+                        //手机
+                        message: '手机号码格式不正确'
+                    }
+                }
+            },
+            "email": {
+                validators: {
+                    notEmpty: {
+                        message: '邮箱不能为空'
+                    },
+                    regexp: {
+                        regexp: /^(?=\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$).{0,30}$/,
+                        message: '输入的不是一个有效的电子邮件地址'
+                    }
+                }
+            },
+            "corp_hire_info": {
+                validators: {
+                    notEmpty: {
+                        message: '请上传招聘简章'
+                    }
+                }
+            },
+          }
+        });
+      }
+      $('#input-file').change(function() {
+        uploadfilechange(this);//上传img
+      });
+      function uploadfilechange(obj){
+        var maxsize = 30*1024*1024;//3M 
+        // 包括.的后缀名
+        alert($(obj).val());
+        var d = /\.[^\.]+$/.exec($(obj).val());
+        d = d[0].toLowerCase();
+        alert(d)
+        if (d != '.pdf' && d != '.txt' && d != '.docx' && d != '.doc') {
+          alert("请选择合法文件！");
+          $('#btn_submitInfo').attr("disabled", "disabled");
+          var parent = $('#input-file').parent();   
+          $('#input-file').change = null
+          $('#input-file').remove();  
+          parent.prepend('<input id="input-file" value="da" name="corp_hire_info" type="file" class="file">');
+          $('#input-file').change(function() {
+          uploadfilechange(this);//上传img
+          });
+          return;
+        }
+        var filesize = obj.files[0].size;
+        if(filesize>maxsize){
+          alert("文件大小不能超过3M！");
+          $('#btn_submitInfo').attr("disabled", "disabled"); 
+          var parent = $('#input-file').parent();
+          $('#input-file').remove()   
+          parent.prepend('<input id="input-file" value="da" name="corp_hire_info" type="file" class="file">');
+          $('#input-file').change(function() {
+          uploadfilechange(this);//上传img
+          });
+          return;
+        }
+        $('#btn_submitInfo').removeAttr("disabled");
+      } 
+    </script>
+  </body>
+
+</html>

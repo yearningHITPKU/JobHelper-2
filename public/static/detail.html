@@ -1,0 +1,136 @@
+﻿<!--
+	作者：xichutian@163.com
+	时间：2018-05-06
+	描述：内推详情
+-->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge chrome=1">
+    <meta name="renderer" content="webkit">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css"></link>
+    <link rel="stylesheet" href="css/studentcss/style.css"/>
+    <link rel="stylesheet" href="css/studentcss/pageModel.css" />
+<title>北京大学学生就业指导学生服务中心</title>
+<style>
+	body { 
+		padding-top: 50px;
+		padding-bottom: 50px; 
+	}
+	a{
+		text-decoration: none;
+		color:#000000;
+		text-underline: none;
+	}
+	a:hover{
+		 color: red;
+		 text-decoration:none;
+	}
+	.footer{
+		margin: 0 auto;
+		padding: 10px 0px;
+	}
+	.form-horizontal .form-group{
+		margin-bottom: 0px;
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+	.footer a:hover{
+		color: #038a1e;
+	}
+</style>
+</head>
+<body>
+	
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">实习内推信息网</a>
+        </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">通知公告</a></li>
+            <li><a href="#">内推信息</a></li>
+            <li><a href="#">面试心得</a></li>
+            <li><a href="#">面试指导</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+			<li><a href="#" style="#fff"><i class="fa fa-user" aria-hidden="true"></i>欢迎回来，向往</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+   </nav>
+   <!--nav center-->
+<!--   <div class="navcenter row">
+   	    	<div class="item col-xs-3"><a href="#">通知公告</a></div>
+   	    	<div class="item col-xs-3"><a href="#">内推信息</a></div>
+   	    	<div class="item col-xs-3"><a href="#">面试心得</a></div>
+   	    	<div class="item col-xs-3"><a href="#">面试指导</a></div>
+   </div>-->
+   <!--end nav center-->
+    <form class="form-horizontal bv-form" role="form" id="studentForm" novalidate="novalidate" enctype="multipart/form-data" method="post" action="{:url('create')}" onsubmit="return checkForm();">
+        <fieldset id="fieldset">
+            <div class="form-group">
+                <div class="littleTitle lineFeed littleicon2 col-sm-12">内推详情</div>
+            </div>
+            <div class="col-sm-12">
+                <div class="articleContainer">
+                    <div class="articleTitle">
+                        国家机关事务管理局西山服务局 2018年度公开招聘公告
+                    </div>
+                    <div class="articleDate">
+                        <div class="input-group2">发布日期：2018-03-29</div>
+                        <div class="input-group2">浏览次数：2115</div>
+                    </div>
+                    <div class="articleContext">
+                        <div class="job-head">内推详情:</div>
+                        <div class="job-detail"><p class="text-justify">对齐文本。该段落会根据屏幕的大小对超出屏幕的文字进行换行对齐文本。该段落会根据屏幕的大小对超出屏幕的文字进行换行对齐文本。该段落会根据屏幕的大小对超出屏幕的文字进行换行对齐文本。该段落会根据屏幕的大小对超出屏幕的文字进行换行</p></div>
+                    </div>
+                </div>
+            </div>
+            <div style="width:100px; margin:0 auto">
+                <div class="item col-sm-6 col-xs-6">
+                    <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                </div>
+                <div class="item col-sm-6 col-xs-6">
+                    <a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+<!-- footer -->
+	<div class="footer row navbar-fixed-bottom">
+			<a href="#">
+			<div class="item col-xs-6 col-sm-6" style="text-align: center;">
+				<i class="fa fa-file-text" aria-hidden="true"></i>
+				<br>
+				发布内推
+			</div>
+			</a>
+			<a href="#">
+			<div class="item col-xs-6 col-sm-6" style="text-align: center;">
+				<i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+				<br>
+				发布心得
+			</div>
+			</a>
+	</div>
+<!-- /footer -->	
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

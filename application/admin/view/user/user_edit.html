@@ -1,0 +1,63 @@
+{include file='public/header' /}
+
+<body>
+<div class="x-body">
+    <form class="layui-form">
+        <div class="layui-form-item">
+            <label for="id" class="layui-form-label">
+                <span class="x-red">*</span>序号
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="id" name="id" lay-verify="pass"
+                       autocomplete="off" class="layui-input" value={$user.id} readonly>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="user_id" class="layui-form-label">
+                <span class="x-red">*</span>学号
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="user_id" name="user_id" lay-verify="pass"
+                       autocomplete="off" class="layui-input" value={$user.uid}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="user_name" class="layui-form-label">
+                <span class="x-red">*</span>姓名
+            </label>
+            <div class="layui-input-inline">
+                <input type="text" id="user_name" name="user_name" lay-verify="pass"
+                       autocomplete="off" class="layui-input" value={$user.name}>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="submit" class="layui-form-label"></label>
+            <button class="layui-btn" lay-filter="save" lay-submit="" id="submit">
+                保存
+            </button>
+        </div>
+    </form>
+</div>
+{include file='public/base_js' /}
+<script>
+    layui.use(['form', 'layer'], function () {
+        $ = layui.jquery;
+        var form = layui.form()
+            , layer = layui.layer;
+
+        $(function () {
+            $("#submit").on('click', function () {
+                $.ajax({
+                    type: 'POST',
+                    url: "{:url('user/update')}",
+                    data: $(".layui-form").serialize(),
+                    dataType: "json"
+                })
+            })
+        })
+    })
+
+</script>
+</body>
+
+</html>

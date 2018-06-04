@@ -1,0 +1,216 @@
+<!--
+	作者：xichutian@163.com
+	时间：2018-05-06
+	描述：学生心得
+-->
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://scc.pku.edu.cn/student/base-student.action -->
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="css/studentcss/bootstrap.min.css" rel="stylesheet">
+    <!-- 时间控件 -->
+    <link href="css/studentcss/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/studentcss/bootstrapValidator.min.css">
+    <script src="js/studentjs/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/studentcss/pageModel.css" />
+    <title>北京大学软件与微电子学院-实习内推发布</title>
+    <style media="screen">.wrap { position: relative; } .side { width: 120px; position: absolute; left: 0; height: 100%; background-color: #f1f1f1; } .right { margin-left: 140px; margin-top: -20px; padding-top: 10px; background-color: white; min-height: 800px; } .p-15 { padding: 15px; } .upload-logo-input { cursor: pointer; width: 100px; height: 100px; font-size: 20px; position: absolute; z-index: 99; opacity: 0; -ms-filter: 'alpha(opacity=0)'; } .profile-logo { position: relative; padding: 10px; text-align: center; } .profile-logo img { border-radius: 50%; width: 100px; height: 100px; } .tip-mask { visibility: hidden; position: absolute; border-radius: 50%; width: 100px; height: 100px; overflow: hidden; } .tip-mask .fa { position: absolute; color: #FFF; font-size: 55px; z-index: 10; left: 30px; top: 7px; } .tip-mask .hint { position: absolute; color: #fff; z-index: 10; font-size: 16px; bottom: 15px; left: 20px; } .tip-mask .mask { width: inherit; height: inherit; background: #000; opacity: 0.6; -ms-filter: 'alpha(opacity=0.6)'; } .head-div { border-radius: 50%; overflow: hidden; } .head-div:hover .tip-mask{ visibility: visible; } .profile-logo h4 { margin: 8px 0; } ul.profile-spec { margin-top: 20px; } ul.profile-spec li>a { display: inline-block; padding: 15px 0 15px 25px; width: 100%; height: 100%; text-decoration: none; font-size: 14px; } ul.profile-spec li.active>a { background-color: #fff; font-size: 15px; } ul.profile-spec li>a:hover { background-color: #fff; } .tab-pane { padding-bottom: 40px; } .add-more { text-align: center; margin: 10px; } .add-more a { padding: 6px 20px; display: inline-block; border: 1px solid #03A9F4; border-radius: 5px; font-size: 14px; text-decoration: none; } .add-more .color-green{ border: 1px solid #527d28; color:#527d28; } .add-more a:hover { background-color: #f1f1f1; text-decoration: none; } .add-more a>i { padding-right: 6px; } .bootstrap-select { width: 260px !important; } .student-tip { line-height: 45px; font-size: 16px; color: red; padding: 0 15px; } .col-sm-2{ width: 15%; padding-right: 0; }</style></head>
+<style>
+    body {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+    a{
+        text-decoration: none;
+        color:#000000;
+        text-underline: none;
+    }
+    a:hover{
+        color: red;
+        text-decoration:none;
+    }
+    .footer{
+        margin: 0 auto;
+        padding: 10px 0px;
+    }
+    .footer a:hover{
+        color: #038a1e;
+    }
+    .form-horizontal .form-group{
+        margin-bottom: 0px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+</style>
+<body tabindex="0">
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-9" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">实习内推信息网</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">个人信息</a></li>
+                <li><a href="#">我的发布</a></li>
+                <li><a href="#">关注</a></li>
+                <li><a href="#">订阅</a></li>
+                <li><a href="#">收藏</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" style="color: red;"><i class="fa fa-user" aria-hidden="true"></i>欢迎回来，向往</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<form class="form-horizontal bv-form" role="form" method="post" id="studentForm" novalidate="novalidate">
+    <fieldset disabled="disabled">
+        <div class="littleTitle lineFeed littleicon2 col-sm-12"><i class="fa fa-user"></i>个人信息</div>
+        <div class="form-group">
+            <label for="studentpin" class="control-label col-xs-3">学号：</label>
+            <div class="col-xs-8">
+                <p class="form-control-static">{:session('user_id')}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="name" class="control-label col-xs-3">姓名：</label>
+            <div class="col-xs-8">
+                <p class="form-control-static">{:session('user_name')}</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">性别：</label>
+            <div class="col-xs-8">
+                <p class="form-control-static">
+                    男
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="age" class="control-label col-xs-3">年龄：</label>
+            <div class="col-xs-8">
+                <input class="form-control" name="student.age" value="25" data-bv-field="student.age">
+                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="student.age" data-bv-result="NOT_VALIDATED" style="display: none;">年龄不能为空</small><small class="help-block" data-bv-validator="regexp" data-bv-for="student.age" data-bv-result="NOT_VALIDATED" style="display: none;">年龄不正确</small></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">手机号码：</label>
+            <div class="col-xs-8">
+                <input id="mobile" class="form-control" placeholder="请输入手机号码" name="student.mobile" value="12345664" data-bv-field="student.mobile">
+                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="student.mobile" data-bv-result="NOT_VALIDATED" style="display: none;">手机号码不能为空</small><small class="help-block" data-bv-validator="regexp" data-bv-for="student.mobile" data-bv-result="NOT_VALIDATED" style="display: none;">手机号码格式不正确</small></div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-xs-3">邮箱：</label>
+            <div class="col-xs-8">
+                <input id="email" class="form-control" placeholder="请输入邮箱" name="student.email" value="17012103335@pku.edu.cn" data-bv-field="student.email">
+                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="student.email" data-bv-result="NOT_VALIDATED" style="display: none;">邮箱不能为空</small><small class="help-block" data-bv-validator="regexp" data-bv-for="student.email" data-bv-result="NOT_VALIDATED" style="display: none;">输入的不是一个有效的电子邮件地址</small></div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3  control-label">是否全日制：</label>
+            <div class="col-xs-3">
+                <div class="radio">
+                    <input id="not-cadre" type="radio" name="student.cadre" value="0">否
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <div class="radio">
+                    <input id="is-cadre" type="radio" name="student.cadre" value="1">是
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="birthTime" class="control-label col-xs-3">出生日期：</label>
+            <div class="col-xs-8">
+                <input name="birthTime" class="form-control" value="1993-10-08">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dateOfEntrance" class="control-label col-xs-3">入学时间：</label>
+            <div class="col-xs-8">
+                <input data-date-format="yyyy-mm-dd" name="entrance_time" class="form-control form_datetime" value="1993-10-08" data-bv-field="birthTime">
+
+                <small class="help-block" data-bv-validator="notEmpty" data-bv-for="birthTime" data-bv-result="NOT_VALIDATED" style="display: none;">出生日期不能为空</small></div>
+        </div>
+
+        <div class="form-group">
+            <label for="dateOfEntrance" class="control-label col-xs-3">入学时间：</label>
+            <div class="col-xs-8">
+                <p class="form-control-static">2017-09-01</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dateOfGraduation" class="control-label col-xs-3">毕业时间：</label>
+            <div class="col-xs-8">
+                <p class="form-control-static">2020-07-01</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3">学历：</label>
+            <div class="col-xs-8">
+                <p class="form-control-static" id="degree-p">硕士</p>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-xs-3">学院：</label>
+            <div class="col-xs-8">
+                <p class="form-control-static" id="college-p">软件与微电子学院</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-xs-3">专业：</label>
+            <div class="col-xs-8">
+                <p class="form-control-static">软件工程</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3  control-label">是否春季毕业生：</label>
+            <div class="col-xs-8">
+                <p class="form-control-static">
+                    否
+                </p>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<div class="footer row navbar-fixed-bottom">
+    <a href="#">
+        <div class="item col-xs-6 col-sm-6" style="text-align: center;">
+            <i class="fa fa-file-text" aria-hidden="true"></i>
+            <br>
+            发布内推
+        </div>
+    </a>
+    <a href="#">
+        <div class="item col-xs-6 col-sm-6" style="text-align: center;">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            <br>
+            面试指导
+        </div>
+    </a>
+</div>
+<!-- jQuery Version 1.11.0 -->
+<script src="js/studentjs/jquery.min.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="js/studentjs/bootstrap.min.js"></script>
+</body>
+
+</html>
