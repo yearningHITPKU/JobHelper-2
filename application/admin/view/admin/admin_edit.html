@@ -12,7 +12,7 @@
                        autocomplete="off" class="layui-input" placeholder="新密码">
             </div>
             <div class="layui-form-mid layui-word-aux">
-                6到16个字符
+                6到16位长度的非中文字符
             </div>
         </div>
         <div class="layui-form-item">
@@ -32,23 +32,42 @@
 
         //自定义验证规则
         form.verify({
-            pass: [/(.+){6,12}$/, '密码必须6到12位']
+
+            pass: function(value, item){ //value：表单的值、item：表单的DOM对象
+                if(!new RegExp("^[a-zA-Z0-9]{6,10}$").test(value)){
+                    return '新密码格式不符合要求';
+                }}
+
         });
 
-        $(function () {
-            $("#submit").on('click', function () {
-                $.ajax({
-                    type: 'POST',
-                    url: "{:url('admin/update')}",
-                    data: $(".layui-form").serialize(),
-                    dataType: "json",
-                    success: function (data) {
-                        x_admin_close();
-                        alert(data.message);
-                    }
-                })
+        form.on('submit(save)', function (data) {
+            alert('要提交啦');
+            $.ajax({
+                type: 'POST',
+                url: "{:url('admin/update')}",
+                data: $(".layui-form").serialize(),
+                dataType: "json",
+                success: function (data) {
+                    x_admin_close();
+                    alert(data.message);
+                }
             })
-        })
+        });
+
+        // $(function () {
+        //     $("#submit").on('click', function () {
+        //         $.ajax({
+        //             type: 'POST',
+        //             url: "{:url('admin/update')}",
+        //             data: $(".layui-form").serialize(),
+        //             dataType: "json",
+        //             success: function (data) {
+        //                 x_admin_close();
+        //                 alert(data.message);
+        //             }
+        //         })
+        //     })
+        // })
     })
 
 </script>

@@ -87,7 +87,12 @@
                             {$vo.id}
                         </td>
                         <td>
-                            {$vo.title}
+                            <!--<u style="cursor:pointer" onclick="question_show()">-->
+                            <u style="cursor:pointer">
+                                <a target="_blank" href="{:url('front/intern/detail', ['id'=>$vo['id']])}" target="_blank">
+                                    {$vo.title}
+                                </a>
+                            </u>
                         </td>
                         <td >
                             {$vo.uid}

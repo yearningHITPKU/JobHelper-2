@@ -53,28 +53,24 @@ class User extends Base
         Log::record($id);
         Log::record($user_id);
         Log::record($user_name);
-        if(preg_match('/^[\x{4e00}-\x{9fa5}]{1,10}$/u', $user_name)>0 && preg_match("/^[\d]{10}$/",$user_id)){
-            try {
-                $user = \app\admin\model\User::get($id);
-                $user->uid = $user_id;
-                $user->name = $user_name;
-                Log::record($user);
-                if ($user->save()) {
-                    $message = '修改成功';
-                    $status = 1;
-                } else {
-                    $message = '非法操作';
-                    $status = 0;
-                }
-            } catch (DbException $e) {
-                $message = '数据库错误，请稍后重试';
+        try {
+            $user = \app\admin\model\User::get($id);
+            $user->uid = $user_id;
+            $user->name = $user_name;
+            Log::record($user);
+            if ($user->save()) {
+                $message = '修改成功';
+                $status = 1;
+            } else {
+                $message = '非法操作';
                 $status = 0;
             }
-            Log::record($message);
-            return ['status'=>$status,'message'=>$message];
-        }else{
-            return ['status'=>0,'message'=>'输入有错误'];
+        } catch (DbException $e) {
+            $message = '数据库错误，请稍后重试';
+            $status = 0;
         }
+        Log::record($message);
+        return ['status'=>$status,'message'=>$message];
     }
 
     public function deleteOneUser(Request $request)

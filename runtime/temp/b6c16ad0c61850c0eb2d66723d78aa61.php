@@ -1,4 +1,4 @@
-<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:87:"/home/xww/workspace/JobHelper/public/../application/admin/view/intern/deleted_list.html";i:1528130823;s:71:"/home/xww/workspace/JobHelper/application/admin/view/public/header.html";i:1528096594;s:72:"/home/xww/workspace/JobHelper/application/admin/view/public/base_js.html";i:1527591138;}*/ ?>
+<?php if (!defined('THINK_PATH')) exit(); /*a:3:{s:87:"/home/xww/workspace/JobHelper/public/../application/admin/view/intern/deleted_list.html";i:1528204438;s:71:"/home/xww/workspace/JobHelper/application/admin/view/public/header.html";i:1528204438;s:72:"/home/xww/workspace/JobHelper/application/admin/view/public/base_js.html";i:1528204438;}*/ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,8 +54,8 @@
             批量恢复
         </button>
         <span class="x-right" style="line-height:40px">
-                    共有数据：<?php echo $intern_size; ?> 条
-                </span>
+            共有数据：<?php echo $intern_size; ?> 条
+        </span>
     </xblock>
     <table class="layui-table">
         <thead>
@@ -68,6 +68,12 @@
             </th>
             <th>
                 标题
+            </th>
+            <th>
+                发布人学号
+            </th>
+            <th>
+                发布人姓名
             </th>
             <th>
                 提交时间
@@ -91,12 +97,17 @@
             </td>
             <td>
                 <!--<u style="cursor:pointer" onclick="question_show()">-->
-                <?php echo $vo['title']; ?>
-                <!--<u style="cursor:pointer">
+                <u style="cursor:pointer">
                     <a target="_blank" href="<?php echo url('front/intern/detail', ['id'=>$vo['id']]); ?>" target="_blank">
                         <?php echo $vo['title']; ?>
                     </a>
-                </u>-->
+                </u>
+            </td>
+            <td >
+                <?php echo $vo['uid']; ?>
+            </td>
+            <td >
+                <?php echo $vo['name']; ?>
             </td>
             <td >
                 <?php echo $vo['time_publish']; ?>
@@ -107,7 +118,7 @@
             <td class="td-manage">
                 <a title="恢复" href="javascript:;" onclick="recover(this,<?php echo $vo['id']; ?>)"
                    style="text-decoration:none">
-                    <i class="layui-icon">&#xe654;</i>
+                    <i class="layui-icon">&#xe619;</i>
                 </a>
                 <a title="删除" href="javascript:;" onclick="question_del(this,<?php echo $vo['id']; ?>)"
                    style="text-decoration:none">

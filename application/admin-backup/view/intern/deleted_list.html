@@ -38,8 +38,8 @@
             批量恢复
         </button>
         <span class="x-right" style="line-height:40px">
-            共有数据：{$intern_size} 条
-        </span>
+                    共有数据：{$intern_size} 条
+                </span>
     </xblock>
     <table class="layui-table">
         <thead>
@@ -80,12 +80,7 @@
                 {$vo.id}
             </td>
             <td>
-                <!--<u style="cursor:pointer" onclick="question_show()">-->
-                <u style="cursor:pointer">
-                    <a target="_blank" href="{:url('front/intern/detail', ['id'=>$vo['id']])}" target="_blank">
-                        {$vo.title}
-                    </a>
-                </u>
+                {$vo.title}
             </td>
             <td >
                 {$vo.uid}
@@ -102,7 +97,7 @@
             <td class="td-manage">
                 <a title="恢复" href="javascript:;" onclick="recover(this,{$vo.id})"
                    style="text-decoration:none">
-                    <i class="layui-icon">&#xe619;</i>
+                    <i class="layui-icon">&#xe654;</i>
                 </a>
                 <a title="删除" href="javascript:;" onclick="question_del(this,{$vo.id})"
                    style="text-decoration:none">
