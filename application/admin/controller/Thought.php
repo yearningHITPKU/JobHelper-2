@@ -29,7 +29,7 @@ class Thought extends Base
         $page = $thoughts->render();
         $this->view->assign('page', $page);
         //4.渲染模板
-        return $this->view->fetch('check_list');
+        return $this->view->fetch('thought_list');
     }
 
     public function delete(Request $request)

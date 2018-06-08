@@ -50,7 +50,7 @@
                         </div>
                         <div class="layui-form-item x-login-box" style="text-align: center;">
                             <input type="checkbox" id="isRememberMe" name="isRememberMe" required="" >
-                            <label>记住我</label>
+                            <!--<label>记住我</label>-->
                         </div>
                         <div class="layui-form-item">
                             <button  class="layui-btn" lay-filter="save"  type="button" id="loginbtn">
@@ -75,7 +75,7 @@
                     color = $(this).attr('color');
                     $('body').css('background-color', color);
                 });
-                nodes=document.evaluate("/html/body/div[1]/div[2]/div[2]/form/div[3]/div/span", document).iterateNext();
+                nodes=document.evaluate("/html/body/div/div[2]/div[2]/form/div[4]/div/span", document).iterateNext();
                 nodes.innerText = '记住我';
 
             });

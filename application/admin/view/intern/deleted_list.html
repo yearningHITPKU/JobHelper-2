@@ -218,6 +218,9 @@
                 url: "{:url('intern/recover')}",
                 data: {'id':id},
                 dataType: "json",
+                success: function (e) {
+                    location.reload();
+                }
             })
         });
     }
@@ -275,6 +278,9 @@
                 url: "{:url('intern/deleteSelected')}",
                 data: {'json':JSON.stringify(data)},
                 dataType: "json",
+                success: function (e) {
+                    location.reload();
+                }
             })
         });
     }
@@ -312,6 +318,9 @@
                 url: "{:url('intern/recoverSelected')}",
                 data: {'json':JSON.stringify(data)},
                 dataType: "json",
+                success: function (e) {
+                    location.reload();
+                }
             })
         });
     }

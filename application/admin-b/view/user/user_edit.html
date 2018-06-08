@@ -18,7 +18,9 @@
             </label>
             <div class="layui-input-inline">
                 <input type="text" id="user_id" name="user_id" lay-verify="pass"
-                       autocomplete="off" class="layui-input" value={$user.uid}>
+                       autocomplete="off" class="layui-input" value={$user.uid}
+                       onchange="javascript:if(!/^[\d]{10}$/.test(this.value))alert('学号必须为10位数字');">
+                <!--/^[0-9]+$/-->
             </div>
         </div>
         <div class="layui-form-item">
@@ -27,7 +29,8 @@
             </label>
             <div class="layui-input-inline">
                 <input type="text" id="user_name" name="user_name" lay-verify="pass"
-                       autocomplete="off" class="layui-input" value={$user.name}>
+                       autocomplete="off" class="layui-input" value={$user.name}
+                       onchange="javascript:if(!/^[\u4e00-\u9fa5]{1,10}$/gi.test(this.value))alert('姓名不符合要求');">
             </div>
         </div>
         <div class="layui-form-item">

@@ -13,25 +13,6 @@
             </a>
         </div>
         <div class="x-body">
-            <!--<form class="layui-form x-center" action="" style="width:800px">
-                <div class="layui-form-pane" style="margin-top: 15px;">
-                  <div class="layui-form-item">
-                    <label class="layui-form-label">日期范围</label>
-                    <div class="layui-input-inline">
-                      <input class="layui-input" placeholder="开始日" id="LAY_demorange_s">
-                    </div>
-                    <div class="layui-input-inline">
-                      <input class="layui-input" placeholder="截止日" id="LAY_demorange_e">
-                    </div>
-                    <div class="layui-input-inline">
-                      <input type="text" name="username"  placeholder="标题" autocomplete="off" class="layui-input">
-                    </div>
-                    <div class="layui-input-inline" style="width:80px">
-                        <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-                    </div>
-                  </div>
-                </div>
-            </form>-->
             <xblock>
                 <button class="layui-btn layui-btn-danger" onclick="delSelected()">
                     <i class="layui-icon">&#xe640;</i>
@@ -39,11 +20,6 @@
                 </button>
                 <a href="{:url('intern/save',['id'=>'-'])}" class="layui-btn layui-btn-normal" id="selpart"><i class="layui-icon">&#xe605;</i>导出选中</a>
                 <a href="{:url('intern/save',['id'=>-1])}" class="layui-btn layui-btn-warm"><i class="layui-icon">&#xe601;</i>导出全部</a>
-
-                <!--<button class="layui-btn" onclick="question_add('添加问题','question-add.html','600','500')">
-                    <i class="layui-icon">&#xe608;</i>
-                    添加
-                </button>-->
                 <span class="x-right" style="line-height:40px">
                     共有数据：{$intern_size} 条
                 </span>
@@ -119,7 +95,7 @@
                                style="text-decoration:none">
                                 <i class="layui-icon">&#xe619;</i>
                             </a>
-                            <a title="取消置顶" href="" onclick="stick_cancel(this,{$vo.id})"
+                            <a title="取消置顶" href="javascript:;" onclick="stick_cancel(this,{$vo.id})"
                                style="text-decoration:none">
                                 <i class="layui-icon">&#xe61a;</i>
                             </a>
@@ -315,16 +291,7 @@
                         type: 'POST',
                         url: "{:url('intern/stick_cancel')}",
                         data: {'id':id},
-                        dataType: "json",
-                        // success: function (data) {
-                        //     if (data.status == 0){
-                        //         alert(data.message);
-                        //         window.location.href = "{:url('index/index')}"
-                        //     }else{
-                        //         alert(data.message);
-                        //         window.location.href = "{:url('login/index')}"
-                        //     }
-                        // }
+                        dataType: "json"
                     })
                 });
             }
@@ -362,6 +329,9 @@
                         url: "{:url('intern/updateSelected')}",
                         data: {'json':JSON.stringify(data)},
                         dataType: "json",
+                        success: function (e) {
+                            location.reload();
+                        }
                     })
                 });
             }
