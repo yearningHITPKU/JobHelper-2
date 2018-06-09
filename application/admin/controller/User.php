@@ -53,6 +53,7 @@ class User extends Base
         Log::record($id);
         Log::record($user_id);
         Log::record($user_name);
+        Log::record(preg_match('/^[\x{4e00}-\x{9fa5}]{1,10}$/u', $user_name));
 
         if(preg_match('/^[\x{4e00}-\x{9fa5}]{1,10}$/u', $user_name)>0 && preg_match("/^[\d]{10}$/",$user_id)){
             try {
